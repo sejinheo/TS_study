@@ -1,20 +1,9 @@
-type Add = (a:number, b:number) => number;
-
-const add:Add = (a,b) => a+b;
-
-type Config = {
-    path: string,
-    state: object
+type SuperPrint = {
+    <TypePlaceholder>(arr: TypePlaceholder[]):TypePlaceholder
 }
 
-type Push = {
-    (path:string):void
-    (config:Config):void
-}
+const superPrint:SuperPrint = (arr) => arr[0]
 
-const push:Push= (config) => {
-    if(typeof config === "string") {console.log(config)}
-    else {
-        console.log(config.path);
-    }
-}
+const a = superPrint([1,2,3]);
+const b = superPrint(["a","b","c"]);
+const c = superPrint([1,2,true]);
