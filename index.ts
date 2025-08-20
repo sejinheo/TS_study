@@ -1,9 +1,22 @@
-type SuperPrint = {
-    <T,M>(a: T[],b: M):T
+abstract class User{
+    constructor(
+        protected firstName:string,
+        protected lastName:string,
+        protected nickname:string
+    ){}
+    abstract getNickName():void
+
+    getFullName(){
+        return `${this.firstName} ${this.lastName}`
+    }
 }
 
-const superPrint:SuperPrint = (arr) => arr[0]
+class Player extends User{
+    getNickName(){
+        console.log(this.nickname);
+    }
+}
 
-const a = superPrint([1,2,3], true);
-const b = superPrint(["a","b","c"], "sejin");
-const c = superPrint([1,2,true], 1);
+const nico = new Player("nico", "las", "니꼬");
+
+nico.getFullName();
