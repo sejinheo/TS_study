@@ -1,23 +1,6 @@
-type Player = {
-    name: string
-    age?: number
-}
+const a : any = true;
+const b : any = 0;
+a+b //가능  any는 타입스크립트의 보호 장치를 무시
 
-const sejin : Player = {
-    name: "sejin",
-    age: 18
-}
 
-const aejin : Player= {
-    name: "aejin",
-    age: 20
-}
-
-function playerMaker(name:string) : Player {
-    return{
-        name
-    }
-}
-
-const heosejin = playerMaker("heosejin");
-heosejin.age= 18
+const player: readonly [string, number] = ["sejin", 18];
