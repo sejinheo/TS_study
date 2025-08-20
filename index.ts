@@ -1,9 +1,9 @@
 type SuperPrint = {
-    <TypePlaceholder>(arr: TypePlaceholder[]):TypePlaceholder
+    <T,M>(a: T[],b: M):T
 }
 
 const superPrint:SuperPrint = (arr) => arr[0]
 
-const a = superPrint([1,2,3]);
-const b = superPrint(["a","b","c"]);
-const c = superPrint([1,2,true]);
+const a = superPrint([1,2,3], true);
+const b = superPrint(["a","b","c"], "sejin");
+const c = superPrint([1,2,true], 1);
