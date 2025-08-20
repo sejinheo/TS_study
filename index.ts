@@ -1,6 +1,20 @@
-const a : any = true;
-const b : any = 0;
-a+b //가능  any는 타입스크립트의 보호 장치를 무시
+let a : unknown;
 
+if(typeof a === 'number'){
+    let b = a + 1;
+}
 
-const player: readonly [string, number] = ["sejin", 18];
+function hello():never{
+    throw new Error("xxx")
+}
+
+function hello2(name:string|number){
+    if(typeof name  === "string"){
+        name
+    } else if(typeof name === "number"){
+        name
+    } else{
+        name
+    }
+
+}
