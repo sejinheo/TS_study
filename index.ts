@@ -1,27 +1,30 @@
-interface User {
-    firstName: string,
-    lastName: string
-
-    sayHi(name: string): string
-    fullName(): string
+interface SStorage<T> {
+    [key:string]: T
 }
 
-interface Human {
-    health:number
-}
+class LocalStorage<T> {
+    private storage: SStorage<T> = {}
 
-class Player implements User, Human {
-    constructor(
-        public firstName: string,
-        public lastName: string,
-        public health: number
-    ) {}
-
-    fullName() {
-        return `${this.firstName} ${this.lastName}`
+    set(key:string, value:T){
+        this.storage[key] = value;
     }
-
-    sayHi(name: string) {
-        return `Hello ${name}. My name is ${this.fullName()}`
+    remove(key:string){
+        delete this.storage[key]
+    }
+    get(key:string):T{
+        return this.storage[key]
+    }
+    clear(){
+        return this.storage = {}
     }
 }
+
+const stringsStorage = new LocalStorage<string>()
+
+stringsStorage.get("ket")
+stringsStorage.set("hello", "how are you")
+
+const booleansStorage = new LocalStorage<boolean>()
+
+booleansStorage.get("xxx")
+booleansStorage.set("hello", true)
