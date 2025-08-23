@@ -1,10 +1,27 @@
 interface User {
-    name: string
+    firstName: string,
+    lastName: string
+
+    sayHi(name: string): string
+    fullName(): string
 }
 
-interface Player extends User{
+interface Human {
+    health:number
 }
 
-const nico : Player = {
-    name: "nico"
+class Player implements User, Human {
+    constructor(
+        public firstName: string,
+        public lastName: string,
+        public health: number
+    ) {}
+
+    fullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
+
+    sayHi(name: string) {
+        return `Hello ${name}. My name is ${this.fullName()}`
+    }
 }
